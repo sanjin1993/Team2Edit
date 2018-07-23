@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+    <form name="loginForm" class="form-horizontal" role="form">
+    <br> <br>
+    <div class="form-group">
+        <div class="col-sm-3">
+           <span class="block input-icon input-icon-right">
+               <label for="username">Username</label>
+                <input type="text" class="form-control" placeholder="Username" name="username" ng-model="login.username" required focus/>
+                <i class="ace-icon fa fa-user"></i>
+            </span>
+        </div>
+    <br>
+        <div class="form-group">
+            <div class="col-sm-3">
+           <span class="block input-icon input-icon-right">
+               <label for="password">Password</label>
+                <input type="text" class="form-control" placeholder="Password" ng-model="login.password" required/>
+                <i class="ace-icon fa fa-user"></i>
+            </span>
+            </div>
+    <br> <br>
+            <div class="col-sm-7">
+                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">
+                    <i class="ace-icon fa fa-key"></i>
+                    Login
+                </button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+    </div>
+    <br>
+
+
+
+</div>
+
+</body>
+</html>

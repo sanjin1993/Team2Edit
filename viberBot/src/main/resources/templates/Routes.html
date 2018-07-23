@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Routes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div id="d-flex w-400 order-0">
+
+
+        <div class="navbar navbar-inverse" role="banner">
+            <thead>
+            <ul class="nav navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/findAll}">Route</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{/findAllReservation}">Reservation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{/login}">Log out</a>
+                </li>
+            </ul>
+            </thead>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Route Id</th>
+            <th>Start</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Available Seats</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <br>
+        <br>
+        <thblock th:each="route : ${routes}">
+            <tr>
+                <td th:text="${route.Id}">...</td>
+                <td th:text="${route.start}">...</td>
+                <td th:text="${route.destination}">...</td>
+                <td th:text="${route.date}">...</td>
+                <td th:text="${route.time}">...</td>
+                <td th:text="${route.availableSeats}">...</td>
+                <td>
+                    <a class="btn btn-danger" th:href="@{/delete/{id}(id=${route.Id})}">Delete </a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/edit/{id}(id=${route.Id})}">Edit</a>
+                </td>
+        </thblock>
+        </tbody>
+    </table>
+    <a class="btn btn-default" th:href="@{/dodaj}">Dodaj</a>
+</div>
+</body>
+</html>
+
