@@ -10,6 +10,4 @@ public class ViberBotApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ViberBotApplication.class, args);
 	}
-	public static void run(Class<BotStartupConfig> botStartupConfigClass, String[] args) {
-	}
 }

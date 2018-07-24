@@ -233,6 +233,7 @@ public class ViberBotService {
             tdMap.put("destination", message.getTrackingData().get("destination").toString());
             tdMap.put("date", message.getTrackingData().get("date"));
             tdMap.put("time", message.getMapRepresentation().get("text").toString());
+
             trackingData = createTrackingData(tdMap);
             for(int i = 0; i < 5; i++) {
                 buttons.add(makeButtons(1,6, String.valueOf(i), "reply", String.valueOf(i)));
@@ -247,8 +248,8 @@ public class ViberBotService {
                     message.getTrackingData().get("destination").toString(),
                     parseDate(message.getTrackingData().get("date").toString()),
                     LocalTime.parse(message.getTrackingData().get("time").toString()),
-                    Integer.parseInt(message.getMapRepresentation().get("avaibleSeats").toString())
-                    ));
+                    Integer.parseInt(message.getMapRepresentation().get("text").toString())
+                    /*event.getSender().getId()*/));
 
             String routeText = "Start: " + route.getStart() + "\nDestination: " + route.getDestination() +
                     "\nDate: " + route.getDate().toString() + "\nTime: " + route.getTime() +

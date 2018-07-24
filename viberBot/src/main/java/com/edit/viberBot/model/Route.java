@@ -123,6 +123,7 @@ public class Route {
 
     @Override
     public String toString() {
-        return "Start: " + this.getStart() + "  Destination: " + this.getDestination() + " Datum " + this.getDate()+ " Time" + this.getTime();
+        return "Start: " + this.getStart() + "  Destination: " + this.getDestination() + " Datum " + this.getDate()+ " Time" + this.getTime()
+                + "Available seats: "+this.getAvailableSeats();
     }
 }
