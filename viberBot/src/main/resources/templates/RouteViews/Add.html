@@ -2,36 +2,121 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <div th:include="Layout/Header"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+    <th:block th:include="home :: head"> </th:block>
+
+
+    <style>
+    body{
+    background-image:url('https://img.tapetenshop.de/s0/030084.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:100%;
+    width:100%;
+
+    }
+
+    label{
+       font-weight: bold;
+       }
+
+.form-control{
+ border-width:2px;
+    border-style:solid;
+       }
+    .container {
+    width: 450px;
+    margin: auto;
+}
+    </style>
+
 </head>
 <body>
+
+<th:block th:include="home :: top-navbar"> </th:block>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/home">ViberBotApplication</a></li>
+            <li class="nav-item"><a class="nav-link" href="/findAll">Routes</a></li>
+            <li class="nav-item"><a class="nav-link" href="/findAllReservation">Reservations</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <form  th:action="@{/logout}" method="get">
+                <input class="btn btn-primary btn-right " type="submit" value="Sign Out"/>
+            </form>
+        </ul>
+    </div>
+</nav>
 
 <div class="container center_div">
 
     <form th:action="@{/snimiAdd}" th:object="${model}" th:method="POST">
         <br> <br>
-        <div class="form-group">
-           <label >Start</label>
-           <input type="text" th:field="*{start}" name="start"/>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="firstname">Start</label>
+                    <input type="text" name="firstname" id="firstname" class="form-control is-invalid" placeholder="Sarajevo">
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="lastname">Destination</label>
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Beograd">
+
+                </div>
+            </div>
         </div>
-        <div class="form-group;">
-           <label>Destination</label>
-          <input type="text" th:field="*{destination}" name="destination"/>
-        </div><br>
+
         <div class="form-group">
-            <label>Date</label>
-           <input type="date" th:field="*{date}" name="date"/>
+            <label for="datetime" class=" col-form-label">Date and time</label>
+            <div class="col-0">
+                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="datetime">
+            </div>
         </div>
+
+
+
         <div class="form-group">
-           <label>Time</label>
-           <input type="time" th:field="*{time}" name="time"/>
+            <label for="available">AvailableSeats</label>
+            <input type="input" name="input" id="available" class="form-control">
         </div>
-        <div class="form-group">
-            <label>AvailableSeats</label>
-            <input type="text" th:field="*{availableSeats}" name="availableSeats"/>
-        </div>
-        <div class="form-group">
-                <button type="submit">Snimi</button>
-        </div>
+
+
+
+
+
+        <button type="add" class="btn btn-primary">Add</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <script>
+        var form = document.querySelector('.needs-validation');
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        })
+    </script>
     </form>
 </div>
 </body>

@@ -247,7 +247,7 @@ public class ViberBotService {
                     message.getTrackingData().get("destination").toString(),
                     parseDate(message.getTrackingData().get("date").toString()),
                     LocalTime.parse(message.getTrackingData().get("time").toString()),
-                    Integer.parseInt(message.getMapRepresentation().get("text").toString())
+                    Integer.parseInt(message.getMapRepresentation().get("avaibleSeats").toString())
                     ));
 
             String routeText = "Start: " + route.getStart() + "\nDestination: " + route.getDestination() +

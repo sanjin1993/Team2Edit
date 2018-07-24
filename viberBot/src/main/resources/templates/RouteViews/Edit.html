@@ -4,12 +4,34 @@
     <div th:include="Layout/Header"></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+
+    <th:block th:include="home :: head"> </th:block>
+
 
     <style>
-        .main-form {
+    body{
+    background-image:url('https://img.tapetenshop.de/s0/030084.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:100%;
+    width:100%;
+
+    }
+
+    label{
+       font-weight: bold;
+       }
+
+.form-control{
+ border-width:2px;
+    border-style:solid;
+       }
+    .container {
     width: 450px;
     margin: auto;
 }
@@ -18,17 +40,28 @@
 </head>
 <body>
 
+<th:block th:include="home :: top-navbar"> </th:block>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/home">ViberBotApplication</a></li>
+            <li class="nav-item"><a class="nav-link" href="/findAll">Routes</a></li>
+            <li class="nav-item"><a class="nav-link" href="/findAllReservation">Reservations</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <form  th:action="@{/logout}" method="get">
+                <input class="btn btn-primary btn-right " type="submit" value="Sign Out"/>
+            </form>
+        </ul>
+    </div>
+</nav>
 <div class="container">
-
-
-
 
     <form th:href="@{/snimiEdit/{id}(id=${model.id})}" th:object="${model}" th:method="POST">
         <br>
         <br>
-
-
-
             <div class="row">
                 <div class="col">
                     <div class="form-group">

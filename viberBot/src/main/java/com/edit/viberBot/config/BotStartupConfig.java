@@ -3,6 +3,7 @@ package com.edit.viberBot.config;
 
 import com.edit.viberBot.ViberBotApplication;
 import com.edit.viberBot.service.ViberBotService;
+import com.viber.bot.ViberSignatureValidator;
 import com.viber.bot.api.ViberBot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,16 +20,16 @@ public class BotStartupConfig implements ApplicationListener<ApplicationReadyEve
     @Inject
     private ViberBot viberBot;
 
-    //@Inject
-    //private ViberSignatureValidator signatureValidator;
+    @Inject
+    private ViberSignatureValidator signatureValidator;
 
     @Value("${application.viber-bot.webhook-url}")
-    private String webhookUrl;
+    private String webhook;
 
-      // public static void main(String[] args) {
+      public static void main(String[] args) {
 
-     //  ViberBotApplication.run(BotStartupConfig.class, args);
-   // }
+      ViberBotApplication.run(BotStartupConfig.class, args);
+    }
 
     @Autowired
     private ViberBotService viberBotService;
@@ -36,11 +37,11 @@ public class BotStartupConfig implements ApplicationListener<ApplicationReadyEve
     @Override
     public void onApplicationEvent(ApplicationReadyEvent appReadyEvent) {
         try {
-            viberBot.setWebhook(webhookUrl).get();
+            viberBot.setWebhook(webhook).get();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        System.out.println("PRORADI");
         viberBot.onMessageReceived((event, message, response) -> viberBotService.onMessageReceived(event, message, response)); // echos everything back
         viberBot.onConversationStarted(event -> viberBotService.onConversationStarted(event));
         viberBot.onSubscribe((event,response)->viberBotService.onSubscribe(event,response));
