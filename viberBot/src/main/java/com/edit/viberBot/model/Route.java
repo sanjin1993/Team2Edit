@@ -14,10 +14,21 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "route_id")
     @Id
-    private Long id;
+    private Integer id;
 
     @Column(name = "Start")
     private String start;
+
+    public String getViberId() {
+        return viberId;
+    }
+
+    public void setViberId(String viberId) {
+        this.viberId = viberId;
+    }
+
+    @Column(name = "viberId")
+    private String viberId;
 
     @Column(name = "Destination")
     private String destination ;
@@ -62,11 +73,11 @@ public class Route {
     @JoinColumn(name = "route_id" , referencedColumnName = "route_id")
     private List<Reservation> reservationList;*/
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

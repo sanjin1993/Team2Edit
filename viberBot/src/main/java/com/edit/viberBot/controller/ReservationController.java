@@ -32,10 +32,10 @@ public class ReservationController {
         LocalDate d =  LocalDate.now();
         LocalTime t = LocalTime.now();
 
-        repository.save(new Reservation(new Route("pozicija51","pozicija61",d,t,12),11,new User("123","User1",false)));
-        repository.save(new Reservation(new Route("pozicija5123","pozicija61",d,t,12),11,new User("123","User2",false)));
-        repository.save(new Reservation(new Route("pozicija5123","pozicija61",d,t,12),11,new User("123","User3",false)));
-        repository.save(new Reservation(new Route("pozicija5425","pozicija61",d,t,12),11,new User("123","User4",false)));
+        repository.save(new Reservation(new User("123", "User1", false), new Route("Mostar", "Sarajevo", d, t, 12), 11));
+        repository.save(new Reservation(new User("1234","User12",false),new Route("Mostar","Zenica",d,t,12),11));
+        repository.save(new Reservation(new User("1235","User13",false),new Route("Jablanica","Konjic",d,t,12),11));
+        repository.save(new Reservation(new User("12356","User14",false),new Route("Brcko","Banjaluka",d,t,12),11));
 
         return "redirect:/" +"findAllReservation";
     }

@@ -12,7 +12,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "reservation_id")
-    private Long id;
+    private Integer id;
 
    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "route_id")
@@ -33,7 +33,7 @@ public class Reservation {
     {
 
     }
-    public Reservation(Route route, int reservedSeats, User user) {
+    public Reservation(User user, Route route, int reservedSeats) {
         this.route = route;
         this.reservedSeats = reservedSeats;
         this.user = user;
@@ -57,11 +57,11 @@ public class Reservation {
     private Route routes;*/
 
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -46,13 +46,13 @@ public class RouteController {
     }
 
     @RequestMapping(value="/findRouteById/{id}" , method = RequestMethod.GET)
-    public String findRouteById(@PathVariable("id") Long Id, Model model) {
+    public String findRouteById(@PathVariable("id") Integer Id, Model model) {
         model.addAttribute("route", repository.findById(Id).get());
         return "RouteViews/Route";
     }
 
     @RequestMapping(value = "/delete/{id}")
-    public String  deleteRoute(@PathVariable("id") Long Id) {
+    public String  deleteRoute(@PathVariable("id") Integer Id) {
 
         Route r = repository.findById(Id).get();
         repository.delete(r);
@@ -60,7 +60,7 @@ public class RouteController {
 }
 
     @RequestMapping(value = "/edit/{id}" , method = RequestMethod.GET)
-    public String  editRoute(@PathVariable("id") Long Id , Model model) {
+    public String  editRoute(@PathVariable("id") Integer Id , Model model) {
         model.addAttribute("model", repository.findById(Id).get());
         return "RouteViews/Edit";
     }
@@ -71,7 +71,7 @@ public class RouteController {
         return "RouteViews/Add";
     }
     @RequestMapping(value = "/snimiEdit/{id}" , method = RequestMethod.POST)
-    public String  snimiEdituj(@PathVariable("id") Long Id ,@RequestParam("start") String start ,@RequestParam("destination") String destination ,@RequestParam("date") String date ,@RequestParam("time") String time ,@RequestParam("availableSeats") int availableseasts) {
+    public String  snimiEdituj(@PathVariable("id") Integer Id ,@RequestParam("start") String start ,@RequestParam("destination") String destination ,@RequestParam("date") String date ,@RequestParam("time") String time ,@RequestParam("availableSeats") int availableseasts) {
 
         Route route = repository.findById(Id).get();
         //RouteService rs = new RouteService();

@@ -9,5 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.stream.Stream;
 
-public interface RouteRepository extends CrudRepository<Route,Long> {
+public interface RouteRepository extends JpaRepository<Route,Integer>{
+    public Route findById(int id);
+    public List<Route> findAllByViberId(String viberId);
 }

@@ -4,11 +4,9 @@
     <div th:include="Layout/Header"></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
         .main-form {
@@ -20,11 +18,17 @@
 </head>
 <body>
 
-<div class="container center_div">
+<div class="container">
+
+
+
 
     <form th:href="@{/snimiEdit/{id}(id=${model.id})}" th:object="${model}" th:method="POST">
         <br>
         <br>
+
+
+
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -59,6 +63,10 @@
 
 
             <button type="save" class="btn btn-primary">Save</button>
+
+
+
+
         </form>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
