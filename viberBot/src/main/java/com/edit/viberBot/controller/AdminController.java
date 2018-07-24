@@ -22,6 +22,6 @@ public class AdminController {
         admin.setPassword("password");
         adminRepository.save(admin);
 
-        return "RouteViews/Index";
+        return "Login";
     }
 }

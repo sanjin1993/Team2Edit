@@ -35,7 +35,7 @@ public class WebController {
         model.addAttribute("admin",new Admin());
         return "Login";
     }
-    @RequestMapping(value = {"/login","/"},method = RequestMethod.GET)
+    @RequestMapping(value = {"/login","/","/error"},method = RequestMethod.GET)
     public String Login(Model model, HttpSession session)
     {
         if (session.getAttribute("userId") != null)
