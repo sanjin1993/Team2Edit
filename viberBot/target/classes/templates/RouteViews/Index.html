@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:jsp="http://www.springframework.org/schema/aop">
+<head>
+    <jsp:include page="Layout/Header"/>
+  </head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:include="Layout/Header"></div>
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Route Id</th>
+            <th>Start</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Available Seats</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <br>
+        <br>
+        <thblock th:each="route : ${routes}">
+            <tr>
+                <td th:text="${route.id}">...</td>
+                <td th:text="${route.start}">...</td>
+                <td th:text="${route.destination}">...</td>
+                <td th:text="${route.date}">...</td>
+                <td th:text="${route.time}">...</td>
+                <td th:text="${route.availableSeats}">...</td>
+                <td>
+                    <a class="btn btn-danger" th:href="@{/delete/{id}(id=${route.id})}">Delete </a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/edit/{id}(id=${route.id})}">Edit</a>
+                </td>
+        </thblock>
+        </tbody>
+    </table>
+    <a class="btn btn-default" th:href="@{/Dodaj}">Dodaj</a>
+</div>
+</body>
+</html>
+

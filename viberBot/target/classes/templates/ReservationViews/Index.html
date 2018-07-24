@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:jsp="http://www.springframework.org/schema/aop">
+<head>
+    <jsp:include page="Layout/Header"/>
+  </head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:include="Layout/Header"></div>
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ResesrvationId</th>
+            <th>User</th>
+            <th>Route</th>
+            <th>Reserved Seats</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <br>
+        <br>
+        <thblock th:each="reservation : ${reservations}">
+            <tr>
+                <td th:text="${reservation.id}">...</td>
+                <td th:text="${reservation.user}">...</td>
+                <td th:text="${reservation.route}">...</td>
+                <td th:text="${reservation.reservedSeats}">...</td>
+                <td>
+                    <a class="btn btn-danger" th:href="@{/deleteReservation/{id}(id=${reservation.id})}">Delete </a>
+                </td>
+        </thblock>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

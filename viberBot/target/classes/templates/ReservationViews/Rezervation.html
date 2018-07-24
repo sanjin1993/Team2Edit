@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <div th:include="Layout/Header"></div>
+</head>
+<body>
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>reservation Id</th>
+            <th>User</th>
+            <th>Route</th>
+            <th>ReservedSeats</th>
+        </tr>
+        </thead>
+        <tbody>
+        <br>
+        <br>
+            <tr>
+                <td th:text="${reservation.id}">...</td>
+                <td th:text="${reservation.user}">...</td>
+                <td th:text="${reservation.route}">...</td>
+                <td th:text="${reservation.reservedSeats}">...</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+</div>
+</body>
+
+</html>
+
