@@ -12,7 +12,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private int id;
+    private Long id;
 
     @Column(name = "viberId")
     private String viberId;
@@ -46,7 +46,7 @@ public class User {
     }
 
     public void setViberId(String viberId) {
-        viberId = viberId;
+        this.viberId = viberId;
     }
 
     public String getName() {
@@ -54,7 +54,7 @@ public class User {
     }
 
     public void setName(String name) {
-        name = name;
+        this.name = name;
     }
 
     public boolean getSubscribed() {
@@ -62,7 +62,7 @@ public class User {
     }
 
     public void setSubscribed(boolean subscribed) {
-        subscribed = subscribed;
+        this.subscribed = subscribed;
     }
 
 
@@ -78,11 +78,17 @@ public class User {
         this.reservationList = reservationList;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        id = id;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Ime: " + this.getName() + " subsribed " + this.getSubscribed();
     }
 }

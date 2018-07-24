@@ -2,6 +2,8 @@ package com.edit.viberBot.model;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "route_id")
     @Id
-    private int id;
+    private Long id;
 
     @Column(name = "Start")
     private String start;
@@ -21,10 +23,10 @@ public class Route {
     private String destination ;
 
     @Column(name = "Date")
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "Time")
-    private Time time;
+    private LocalTime time;
 
     @Column(name = "AvailableSeats")
     private int availableSeats;
@@ -32,7 +34,7 @@ public class Route {
     @OneToMany(mappedBy = "route")
     private List<Reservation> reservationList;
 
-    public Route(String sta , String dest , Date dat , Time tim , int availableSeat)
+    public Route(String sta , String dest , LocalDate dat , LocalTime tim , int availableSeat)
     {
         this.start = sta;
         this.destination = dest;
@@ -44,8 +46,9 @@ public class Route {
     {
 
     }
- /*   @OneToMany(mappedBy = "route")
-    List<Reservation> reservations;*/
+
+    @OneToMany(mappedBy = "route")
+    List<Reservation> reservations;
 
     public List<Reservation> getReservationList() {
         return reservationList;
@@ -59,12 +62,12 @@ public class Route {
     @JoinColumn(name = "route_id" , referencedColumnName = "route_id")
     private List<Reservation> reservationList;*/
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        id = id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getStart() {
@@ -72,7 +75,7 @@ public class Route {
     }
 
     public void setStart(String start) {
-        start = start;
+        this.start = start;
     }
 
     public String getDestination() {
@@ -80,23 +83,23 @@ public class Route {
     }
 
     public void setDestination(String destination) {
-        destination = destination;
+        this.destination = destination;
     }
 
-    public java.util.Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(java.util.Date date) {
-        date = date;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public java.sql.Time getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(java.sql.Time time) {
-        time = time;
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
 
     public int getAvailableSeats() {
@@ -104,7 +107,11 @@ public class Route {
     }
 
     public void setAvailableSeats(int availableSeats) {
-        availableSeats = availableSeats;
+        this.availableSeats = availableSeats;
     }
 
+    @Override
+    public String toString() {
+        return "Start: " + this.getStart() + "  Destination: " + this.getDestination() + " Datum " + this.getDate()+ " Time" + this.getTime();
+    }
 }

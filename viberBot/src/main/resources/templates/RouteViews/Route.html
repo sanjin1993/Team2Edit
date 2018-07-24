@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <div th:include="Layout/Header"></div>
+</head>
+<body>
+    <div class="container">
+
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Route Id</th>
+            <th>Start</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Available Seats</th>
+        </tr>
+        </thead>
+        <tbody>
+        <br>
+        <br>
+            <tr>
+                <td th:text="${route.id}">...</td>
+                <td th:text="${route.start}">...</td>
+                <td th:text="${route.destination}">...</td>
+                <td th:text="${route.date}">...</td>
+                <td th:text="${route.time}">...</td>
+                <td th:text="${route.availableSeats}">...</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+</div>
+</body>
+
+</html>
+

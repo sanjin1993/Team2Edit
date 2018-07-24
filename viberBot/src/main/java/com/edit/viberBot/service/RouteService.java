@@ -1,7 +1,7 @@
 package com.edit.viberBot.service;
 
 import com.edit.viberBot.model.Route;
-import com.edit.viberBot.repository.RouteRep;
+import com.edit.viberBot.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 public class RouteService {
 
     @Autowired
-    RouteRep routeRep;
+    RouteRepository routeRep;
 
-    public void save(Route route) {
-        routeRep.save(route);
-    }
+
 }
